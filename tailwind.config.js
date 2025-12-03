@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily:{
         Cairo: ["Cairo","sans-serif"],
+        Poppins:["Poppins","sans-serif"],
       },
     },
   },
