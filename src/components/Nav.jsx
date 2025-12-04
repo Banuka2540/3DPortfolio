@@ -10,8 +10,9 @@ export default function Nav() {
         <ul className='flex gap-12 font-Cairo'>
           <a className='cursor-pointer hover:text-gray-300'>Home</a>
           <a className='cursor-pointer hover:text-gray-300'>About</a>
-          <a className='cursor-pointer hover:text-gray-300'>Contact</a>
+          <a className='cursor-pointer hover:text-gray-300'>Skills</a>
           <a className='cursor-pointer hover:text-gray-300'>Projects</a>
+          <a className='cursor-pointer hover:text-gray-300'>Contacts</a>
         </ul>
     </div>
   </div>
