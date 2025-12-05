@@ -1,8 +1,8 @@
 import React from 'react'
-
 import logo from '../assets/logo.png'
 
 export default function Nav() {
+  
   return (
   <div className='pb-6 p-7'>  
     <div className="rounded-full w-auto h-16 flex items-center justify-between gap-5 px-6 bg-[#370238] text-white">
@@ -16,6 +16,4 @@ export default function Nav() {
         </ul>
     </div>
   </div>
-
-  )
-}
+  )}
