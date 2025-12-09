@@ -5,15 +5,15 @@ export default function Nav() {
   
   return (
   <div className='nav pb-6  p-7' >  
-    <div className="rounded-full w-auto h-16 flex items-center justify-between gap-5 px-6 bg-[#370238] text-white ">
+    <div className="rounded-full max-h-screen h-16 flex items-center justify-between gap-5 pr-32 pl-10 bg-gradient-to-b from-[#4E0024] to-[#3F001D] text-white ">
       <img src={logo} className="w-10 rounded-full" />
-        <ul className='flex gap-12 font-Cairo'>
+        <div className='flex gap-16 font-Cairo'>
           <a className='cursor-pointer hover:text-gray-300'>Home</a>
           <a className='cursor-pointer hover:text-gray-300'>About</a>
           <a className='cursor-pointer hover:text-gray-300'>Skills</a>
           <a className='cursor-pointer hover:text-gray-300'>Projects</a>
           <a className='cursor-pointer hover:text-gray-300'>Contacts</a>
-        </ul>
+        </div>
     </div>
   </div>
   )}

@@ -9,7 +9,9 @@ export default {
       fontFamily:{
         Cairo: ["Cairo","sans-serif"],
         Poppins:["Poppins","sans-serif"],
+      
       },
+      
     },
   },
   plugins: [],

@@ -3,15 +3,16 @@ import Nav from '../components/Nav'
 import Hero from '../components/Hero'
 import About from '../components/about'
 import Technologies from '../components/Technologies'
-
+import Projects from "../components/projects"
 
 export default function Home() {
   return (
-    <div className=' bg-gradient-to-b from-[#1F0038] to-[#1B0011] w-screen min-h-screen'>
+    <div class="bg-[radial-gradient(circle,_#160028,_#1B0011)] min-h-screen w-screen">  
       <Nav/>
       <Hero/>
       <About/>
-      <Technologies/>      
+      <Technologies/>    
+      <Projects/>  
     </div>
   )
 }
