@@ -10,9 +10,9 @@ import overlay from '../assets/overlay.jpg'
 
 export default function Home() {
   return (
-    <div class="relative bg-[radial-gradient(circle,_#160028,_#1B0011)] min-h-full w-screen">  
+    <main class="relative bg-[radial-gradient(circle,_#160028,_#1B0011)] min-h-screen w-screen ">  
     <div><img src={overlay} className='z-0 absolute inset-0 w-full h-full object-cover opacity-5'></img></div>
-    <div className='relative z-10'>
+    <div className='relative z-10 overflow-x-hidden'>
       <Nav/>
       <Hero/>
       <About/>
@@ -20,6 +20,6 @@ export default function Home() {
       <Projects/>  
       <Contacts/>
     </div>
-    </div>
+    </main>
   )
 }
