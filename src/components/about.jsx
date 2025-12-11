@@ -3,7 +3,7 @@ import first from "../assets/1.jpg"
 
 export default function About() {
   return (
-    <div>
+    <div id='about'>
       <h1 className='px-20 pb-10 pt-16 m-1 text-[#ffffff] font-extralight text-7xl font-Poppins text-base/1 '>
         I’m an undergraduate and currently diving deep into machine learning and deep learning. I’m also building responsive websites, experimenting with creative software ideas, and learning how to design efficient data pipelines.
       </h1>
