@@ -62,7 +62,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className='min-h-screen flex justify-between text-white font-Poppins'>
+    <section className="flex justify-between text-white font-Poppins min-h-[120vh]">
       <div className='pt-12 pb-0 pl-32 pr-32 mt-24'>
         <h1
           ref={introRef}
@@ -74,7 +74,7 @@ export default function Hero() {
           </div>
         </h1>
 
-        <h2 className='pb-10 text-3xl text-gray-300 relative h-8 pt-6'>
+        <h2 className="pb-10 text-3xl text-gray-300 relative min-h-[2rem] pt-6">
           {taglines.map((tag, idx) => (
             <span
               key={idx}

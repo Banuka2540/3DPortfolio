@@ -32,7 +32,7 @@ export default function Home() {
 
 
   return (
-    <main className="relative bg-[radial-gradient(circle,_#160028,_#1B0011)] min-h-screen min-w-max">
+    <main className="relative bg-[radial-gradient(circle,_#160028,_#1B0011)] min-h-screen min-full">
 
       <img
         src={overlay}
