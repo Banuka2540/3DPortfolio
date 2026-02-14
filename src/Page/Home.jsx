@@ -19,7 +19,6 @@ export default function Home() {
 
   useLayoutEffect(() => {
     if (!wrapperRef.current || !contentRef.current) return
-
     const smoother = ScrollSmoother.create({
       wrapper: wrapperRef.current,
       content: contentRef.current,
@@ -27,20 +26,19 @@ export default function Home() {
       effects: true,
       smoothTouch: 0.1
     })
-
     return () => smoother.kill()
   }, [])
 
+
+
   return (
-    <main className="relative bg-[radial-gradient(circle,_#160028,_#1B0011)] min-h-screen w-screen">
+    <main className="relative bg-[radial-gradient(circle,_#160028,_#1B0011)] min-h-screen min-w-max">
 
       <img
         src={overlay}
-        className="z-0 absolute inset-0 w-full h-full object-cover opacity-5"
+        className="z-0 absolute inset-0 h-screen w-screen object-cover opacity-5"
         alt=""
       />
-
-      {/* REQUIRED GSAP STRUCTURE */}
       <div ref={wrapperRef}>
         <div ref={contentRef} className="relative z-10 overflow-x-hidden">
 
