@@ -9,6 +9,9 @@ export default function Contact() {
         <h1 className='p-6 pb-2 text-6xl'>Connect with me </h1>      
         </div>
         <div className='flex justify-center p-10 '>
+            <form className=''>
+              <legend>sdfs</legend>
+            </form>
             <Socials/>
         </div>
     </div>

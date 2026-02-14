@@ -62,7 +62,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className='flex justify-between text-white font-Poppins'>
+    <section className='min-h-screen flex justify-between text-white font-Poppins'>
       <div className='pt-12 pb-0 pl-32 pr-32 mt-24'>
         <h1
           ref={introRef}
@@ -102,6 +102,6 @@ export default function Hero() {
         <Socials/>
       </div> 
       <Eclipse/>
-    </div>
+    </section>
   )
 }
