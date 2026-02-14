@@ -19,6 +19,7 @@ export default function Home() {
 
   useLayoutEffect(() => {
     if (!wrapperRef.current || !contentRef.current) return
+
     const smoother = ScrollSmoother.create({
       wrapper: wrapperRef.current,
       content: contentRef.current,
@@ -26,22 +27,27 @@ export default function Home() {
       effects: true,
       smoothTouch: 0.1
     })
+
     return () => smoother.kill()
   }, [])
 
-
-
   return (
-    <main className="relative bg-[radial-gradient(circle,_#160028,_#1B0011)] min-h-screen min-full">
+    <main className="relative bg-[radial-gradient(circle,_#160028,_#1B0011)] min-h-screen">
 
-      <img
-        src={overlay}
-        className="z-0 absolute inset-0 h-screen w-screen object-cover opacity-5"
-        alt=""
-      />
-      <div ref={wrapperRef}>
-        <div ref={contentRef} className="relative z-10 overflow-x-hidden">
+      {/* SmoothSmoother wrapper */}
+      <div ref={wrapperRef} className="smooth-wrapper h-screen overflow-hidden bg-[#160028]">
 
+        {/* SmoothSmoother content */}
+        <div ref={contentRef} className="smooth-content relative z-10 bg-[#160028]">
+
+          {/* Overlay image inside content so it scrolls properly */}
+          <img
+            src={overlay}
+            className="absolute inset-0 w-full h-full object-cover opacity-5"
+            alt=""
+          />
+
+          {/* Sections */}
           <Nav />
           <Hero />
           <About />

@@ -3,10 +3,7 @@ import first from "../assets/1.jpg"
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="relative py-48"
-    >
+    <section id="about" className="relative py-48">
       <h1 className="px-20 pb-20 pt-16 text-white font-extralight text-7xl font-Poppins leading-tight">
         I’m an undergraduate and currently diving deep into machine learning and deep learning.
         I’m also building responsive websites, experimenting with creative software ideas,

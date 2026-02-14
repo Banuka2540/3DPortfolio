@@ -62,7 +62,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="flex justify-between text-white font-Poppins min-h-[120vh]">
+    <section className="flex justify-between text-white font-Poppins min-h-screen">
       <div className='pt-12 pb-0 pl-32 pr-32 mt-24'>
         <h1
           ref={introRef}
