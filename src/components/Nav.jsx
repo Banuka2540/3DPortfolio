@@ -18,7 +18,7 @@ export default function Nav() {
     gsap.fromTo(
       linksContainerRef.current.children,
       { opacity: 0, y: -20 },
-      { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, delay: 0.5 }
+      { opacity: 1, y: 0, duration: 1, stagger: 0.1, delay: 0.5 }
     );
 
     // Scroll hide/show
@@ -27,9 +27,9 @@ export default function Nav() {
       if (!navRef.current) return;
       const currentScroll = window.pageYOffset;
       if (currentScroll > lastScroll) {
-        gsap.to(navRef.current, { y: -100, duration:  0.8 });
+        gsap.to(navRef.current, { y: -100, duration:  0.9});
       } else {
-        gsap.to(navRef.current, { y: 0, duration: 0.8 });
+        gsap.to(navRef.current, { y: 0 , duration: 0.9 });
       }
       lastScroll = currentScroll;
     };
