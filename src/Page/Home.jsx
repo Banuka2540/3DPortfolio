@@ -41,20 +41,17 @@ export default function Home() {
         <div ref={contentRef} className="smooth-content relative z-10 bg-[#160028]">
 
           {/* Overlay image inside content so it scrolls properly */}
-          <img
-            src={overlay}
-            className="absolute inset-0 w-full h-full object-cover opacity-5"
-            alt=""
-          />
+        
 
           {/* Sections */}
+           {/* Sections */}
           <Nav />
           <Hero />
           <About />
           <Technologies />
           <Projects />
           <Contacts />
-
+            
         </div>
       </div>
 

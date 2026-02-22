@@ -17,71 +17,38 @@ export default function About() {
       </h1>
 
       {/* my timeline */}
-      <h3 className="text-7xl text-left pl-20 pb-16 pt-64 font-Poppins text-white">2008</h3>
-      <div className="flex justify-between items-start px-20 gap-10">
-        
-        <div className=" w-full max-w-3xl h-[500px]">
-          <img src={first} className=" pl-2 w-[800px] h-[500px]" alt="" />
-        </div>
-        
-        <h2 className="text-4xl text-white max-w-xl pb-20 pt-48">
-          Started my Education journey from Kingswood College Kandy.
-        </h2>
-      
-      </div>
 
       <h3 className="text-7xl text-left pl-20 pb-16 pt-64 font-Poppins text-white">2008</h3>
       <div className="flex justify-between items-start px-20 gap-10">
-        
-        <div className="relative w-full max-w-3xl h-[500px]">
-         <img src={second} className="pl-2  w-[800px] h-[500px]" alt="" />
-        </div>
-        
-        <h2 className="text-4xl text-white max-w-xl pb-20 pt-48">
-          Started my Education journey from Kingswood College Kandy.
-        </h2>
-      
-      </div>
-      
-      <h3 className="text-7xl text-left pl-20 pb-16 pt-64 font-Poppins text-white">2008</h3>
-      <div className="flex justify-between items-start px-20 gap-10">
-        
-        <div className="relative w-full max-w-3xl h-[500px]">
-          <img src={third} className="pl-2  w-[800px] h-[500px]" alt="" />
-        </div>
-        
-        <h2 className="text-4xl text-white max-w-xl pb-20 pt-48">
-          Started my Education journey from Kingswood College Kandy.
-        </h2>
-      
+        <img src={first} className=" pl-2 w-[800px] h-[500px]" alt="" />
+        <h2 className='text-white font-Poppins text-4xl text-left pt-48'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h2>
       </div>
 
-      <h3 className="text-7xl text-left pl-20 pb-16 pt-64 font-Poppins text-white">2008</h3>
+      <h3 className="text-7xl text-left pl-20 pb-16 pt-64 font-Poppins text-white">2019</h3>
       <div className="flex justify-between items-start px-20 gap-10">
-        
-        <div className="relative w-full max-w-3xl h-[500px]">
-         <img src={fourth} className="pl-2  w-[800px] h-[500px]" alt="" />
-        </div>
-        
-        <h2 className="text-4xl text-white max-w-xl pb-20 pt-48">
-          Started my Education journey from Kingswood College Kandy.
-        </h2>
-      
+        <img src={second} className=" pl-2 w-[800px] h-[500px]" alt="" />
+        <h2 className='text-white font-Poppins text-4xl text-left pt-48'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h2>
       </div>
 
-
-      <h3 className="text-7xl text-left pl-20 pb-16 pt-64 font-Poppins text-white">2008</h3>
+      <h3 className="text-7xl text-left pl-20 pb-16 pt-64 font-Poppins text-white">2022</h3>
       <div className="flex justify-between items-start px-20 gap-10">
-        
-        <div className="relative w-full max-w-3xl h-[500px]">
-          <img src={fifth} className="pl-2  w-[800px] h-[500px]" alt="" />
-        </div>
-        
-        <h2 className="text-4xl text-white max-w-xl pb-20 pt-48">
-          Started my Education journey from Kingswood College Kandy.
-        </h2>
-      
+        <img src={third} className=" pl-2 w-[800px] h-[500px]" alt="" />
+        <h2 className='text-white font-Poppins text-4xl text-left pt-48'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </h2>
       </div>
+
+      <h3 className="text-7xl text-left pl-20 pb-16 pt-64 font-Poppins text-white">2023</h3>
+      <div className="flex justify-between items-start px-20 gap-10">
+        <img src={fourth} className=" pl-2 w-[800px] h-[500px]" alt="" />
+        <h2 className='text-white font-Poppins text-4xl text-left pt-48'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h2>
+      </div>
+
+      <h3 className="text-7xl text-left pl-20 pb-16 pt-64 font-Poppins text-white">2024</h3>
+      <div className="flex justify-between items-start px-20 gap-10">
+        <img src={fifth} className=" pl-2 w-[800px] h-[500px]" alt="" />
+        <h2 className='text-white font-Poppins text-4xl text-left pt-48'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h2>
+      </div>
+        
+        
     </section>
   )
 }
