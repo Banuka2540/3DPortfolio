@@ -1,100 +1,76 @@
-import React, { useLayoutEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import Icon from '../assets/Icon.png';
+import React, { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import Icon from '../assets/Icon.png'; 
 import Socials from './Socials';
 import Eclipse from './eclipse';
 
 export default function Hero() {
-  const containerRef = useRef(null);
-  const taglineRefs = useRef([]);
-  const buttonRef = useRef(null);
-  const introRef = useRef(null);
+  const container = useRef();
 
-  const taglines = [
-    "Aspiring ML / DL Engineer.",
-    "Passionate About AI.",
-    "Code. Learn. Innovate.",
-    "Turning Data Into Insights.",
-    "Future Tech Creator."
-  ];
+  useGSAP(() => {
+    const tl = gsap.timeline();
 
-  const addToRefs = (el) => {
-    if (el && !taglineRefs.current.includes(el)) {
-      taglineRefs.current.push(el);
-    }
-  };
+    // Stagger the text and button entrance
+    tl.from(".hero-elem", {
+      y: 40,
+      opacity: 0,
+      stagger: 0.15,
+      duration: 1,
+      ease: "power4.out",
+      delay: 0.2
+    });
 
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      // 1. Entrance Animation
-      gsap.fromTo(introRef.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, ease: "power3.out", delay: 0.2 }
-      );
+    // Animate the name pill specifically
+    tl.from(".hero-pill", {
+      scale: 0.8,
+      opacity: 0,
+      duration: 1,
+      ease: "elastic.out(1, 0.5)"
+    }, "-=0.8");
 
-      // 2. Tagline cycling
-      const tl = gsap.timeline({ repeat: -1 });
-      taglineRefs.current.forEach((tag) => {
-        if (tag) {
-          tl.to(tag, { opacity: 1, y: 0, duration: 1, ease: "power1.inOut" })
-            .to(tag, { opacity: 0, y: -10, duration: 1, ease: "power1.inOut", delay: 2 });
-        }
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+    // Continuous floating animation for the 3D object
+    gsap.to(".hero-3d", {
+      y: -15,
+      duration: 2.5,
+      ease: "sine.inOut",
+      yoyo: true,
+      repeat: -1
+    });
+  }, { scope: container });
 
   return (
-    <section 
-      ref={containerRef} 
-      className="relative min-h-screen w-full flex flex-wrap-reverse items-center justify-center px-[8vw] py-48  overflow-hidden text-white font-Poppins">
+    <section id="home" ref={container} className="relative min-h-[calc(100vh-80px)] w-full flex flex-col-reverse lg:flex-row items-center justify-between px-[6vw] lg:px-[10vw] py-8 lg:py-0 overflow-hidden text-white font-Poppins bg-[#0c0307]">
       
-      <div 
-        className="flex-grow flex-shrink basis-[400px] z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
+      <div className="z-10 flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-1/2 mt-6 lg:mt-0">
         
-        <div 
-          ref={introRef} className="text-[clamp(2rem,6vw,4rem)] font-Poppins flex flex-wrap gap-3 items-center justify-center lg:justify-start pb-8">
-          
-          <span 
-            className="whitespace-nowrap">Hi I’m</span>
-          
-          <div 
-            className="bg-gradient-to-t from-[#B60039] to-[#963600] py-0 px-3 rounded-full whitespace-nowrap shadow-xl">
+        <div className="hero-elem text-[2rem] sm:text-[2.5rem] lg:text-[clamp(2.5rem,5vw,4.2rem)] font-medium flex flex-wrap gap-x-3 gap-y-2 items-center justify-center lg:justify-start leading-tight tracking-wide">
+          <span>Hi I’m</span>
+          <span className="hero-pill bg-gradient-to-r from-[#d91a45] to-[#c8560e] py-1 md:py-2 px-4 md:px-6 rounded-full shadow-lg">
             Yuthila Banuka
-          </div>
-        
+          </span>
         </div>
 
-        <div 
-          className="relative h-12 w-full flex justify-center lg:justify-start pb-10 pt-3">
-          <h2 
-            className="text-xl md:text-2xl text-gray-300 font-light">
-            {taglines.map((tag, idx) => (
-              <span key={idx} ref={addToRefs} className="absolute left-0 right-0 lg:right-auto opacity-0 whitespace-nowrap">
-                {tag}
-              </span>
-            ))}
-          </h2>
-        </div>
+        <h2 className="hero-elem text-base md:text-xl text-gray-200 font-light tracking-wide mt-3 md:mt-4 mb-6 md:mb-8 text-center lg:text-left">
+          Aspiring ML / DL Engineer
+        </h2>
 
-        <div 
-          className="flex flex-col items-center lg:items-start gap-12 w-full pt-6">
-          <button 
-            ref={buttonRef} className="font-Poppins font-thin relative rounded-full w-56 h-14 flex items-center justify-between px-8 bg-gradient-to-r from-[#6E0004] to-[#690038] text-white overflow-hidden transition-transform active:scale-95 shadow-lg">
-            <h3 className="font-medium">View projects</h3>
-            <img src={Icon} className="w-5" alt="icon" />
-          </button>
+        <button className="hero-elem flex items-center justify-between gap-3 md:gap-4 rounded-[2rem] h-10 md:h-[3.5rem] px-5 md:px-6 bg-[#82082b] hover:bg-[#a10d36] transition-colors shadow-lg w-44 md:w-56 mx-auto lg:mx-0">
+          <span className="font-normal text-sm md:text-[1.1rem] tracking-wide">View projects</span>
+          <img src={Icon} className="w-4 h-4 md:w-5 md:h-5 object-contain" alt="search icon" />
+        </button>
+
+        <div className="hero-elem mt-16 md:mt-24 w-full flex justify-center lg:justify-start pb-8 lg:pb-0">
           <Socials />
         </div>
       </div>
 
-  
-      <div className="flex-grow flex-shrink basis-[400px] flex justify-normal pr-0 lg:justify-end items-center mb-10 lg:mb-0">
-        <div className="scale-90 md:scale-100 lg:scale-110">
+      <div className="flex justify-center lg:justify-end items-center w-full lg:w-1/2 mb-8 lg:mb-0">
+        <div className="hero-3d relative flex justify-center items-center w-full max-w-[260px] sm:max-w-[320px] md:max-w-[450px] lg:max-w-[600px] aspect-square mx-auto lg:mx-0 lg:ml-auto">
           <Eclipse />
         </div>
       </div>
+      
     </section>
   );
 }
