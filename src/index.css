@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🔑 REQUIRED for GSAP ScrollSmoother */
+
 html,
 body {
   height: auto;
@@ -13,14 +13,14 @@ body {
   overflow-y: auto;
 }
 
-/* 🔑 Smooth wrapper must NOT constrain height */
+
 #smooth-wrapper {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
 
-/* 🔑 Smooth content MUST be allowed to grow */
+
 #smooth-content {
   position: relative;
   width: 100%;
