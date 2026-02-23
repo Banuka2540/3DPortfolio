@@ -47,23 +47,29 @@ export default function Hero() {
 
   return (
     <section 
-      ref={containerRef}
-      className="relative min-h-screen w-full flex flex-wrap-reverse items-center justify-center px-[5vw] py-20 overflow-hidden text-white font-Poppins"
-    >
-      {/* TEXT CONTENT 
-          'flex-grow' and 'basis' allow it to take space until it's forced to wrap 
-      */}
-      <div className="flex-grow flex-shrink basis-[400px] z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
+      ref={containerRef} 
+      className="relative min-h-screen w-full flex flex-wrap-reverse items-center justify-center px-[8vw] py-48  overflow-hidden text-white font-Poppins">
+      
+      <div 
+        className="flex-grow flex-shrink basis-[400px] z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
         
-        <div ref={introRef} className="text-[clamp(2rem,6vw,4rem)] font-bold flex flex-wrap gap-3 items-center justify-center lg:justify-start pb-8">
-          <span className="whitespace-nowrap">Hi I’m</span>
-          <div className="bg-gradient-to-t from-[#B60039] to-[#963600] py-2 px-6 rounded-3xl whitespace-nowrap shadow-xl border border-white/10">
+        <div 
+          ref={introRef} className="text-[clamp(2rem,6vw,4rem)] font-Poppins flex flex-wrap gap-3 items-center justify-center lg:justify-start pb-8">
+          
+          <span 
+            className="whitespace-nowrap">Hi I’m</span>
+          
+          <div 
+            className="bg-gradient-to-t from-[#B60039] to-[#963600] py-0 px-3 rounded-full whitespace-nowrap shadow-xl">
             Yuthila Banuka
           </div>
+        
         </div>
 
-        <div className="relative h-12 w-full flex justify-center lg:justify-start pb-10">
-          <h2 className="text-xl md:text-2xl text-gray-300 font-light">
+        <div 
+          className="relative h-12 w-full flex justify-center lg:justify-start pb-10 pt-3">
+          <h2 
+            className="text-xl md:text-2xl text-gray-300 font-light">
             {taglines.map((tag, idx) => (
               <span key={idx} ref={addToRefs} className="absolute left-0 right-0 lg:right-auto opacity-0 whitespace-nowrap">
                 {tag}
@@ -72,8 +78,10 @@ export default function Hero() {
           </h2>
         </div>
 
-        <div className="flex flex-col items-center lg:items-start gap-12 w-full">
-          <button ref={buttonRef} className="relative rounded-full w-56 h-14 flex items-center justify-between px-8 bg-gradient-to-r from-[#6E0004] to-[#690038] text-white overflow-hidden transition-transform active:scale-95 shadow-lg">
+        <div 
+          className="flex flex-col items-center lg:items-start gap-12 w-full pt-6">
+          <button 
+            ref={buttonRef} className="font-Poppins font-thin relative rounded-full w-56 h-14 flex items-center justify-between px-8 bg-gradient-to-r from-[#6E0004] to-[#690038] text-white overflow-hidden transition-transform active:scale-95 shadow-lg">
             <h3 className="font-medium">View projects</h3>
             <img src={Icon} className="w-5" alt="icon" />
           </button>
@@ -81,11 +89,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ASTRONAUT / ECLIPSE 
-          By using 'flex-wrap-reverse', this element stays on the right, 
-          but jumps to the TOP the moment they touch.
-      */}
-      <div className="flex-grow flex-shrink basis-[400px] flex justify-center lg:justify-end items-center mb-10 lg:mb-0">
+  
+      <div className="flex-grow flex-shrink basis-[400px] flex justify-normal pr-0 lg:justify-end items-center mb-10 lg:mb-0">
         <div className="scale-90 md:scale-100 lg:scale-110">
           <Eclipse />
         </div>
