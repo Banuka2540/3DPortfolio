@@ -1,51 +1,118 @@
 import React, { useState } from 'react';
 
 export default function Technologies() {
-  const [activeTab, setActiveTab] = useState('Frontend');
-  const categories = [
-    "Frontend", "Backend", "Machine Learning", "Deep Learning", 
-    "Cloud & Devops", "Others", "Programming", "Media"
+  // State to track which category we are currently viewing
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // The complete ordered list of your skills and categories
+  const skillCategories = [
+    {
+      title: "Frontend",
+      skills: [
+        { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+        { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
+        { name: "Javascript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+        { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" }
+      ]
+    },
+    {
+      title: "Backend",
+      skills: [
+        { name: "Django", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" },
+        { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" }
+      ]
+    },
+    {
+      title: "Machine Learning / Deep Learning",
+      skills: [
+        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+        { name: "TensorFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" },
+        { name: "scikit-learn", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" },
+        { name: "Keras", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg" }
+      ]
+    },
+    {
+      title: "Cloud & Devops",
+      skills: [
+        { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
+        { name: "AZURE", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
+        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+        { name: "GitHub Actions", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" }
+      ]
+    },
+    {
+      title: "Programming",
+      skills: [
+        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+        { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
+        { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" },
+        { name: "Javascript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" }
+      ]
+    },
+    {
+      title: "Others",
+      skills: [
+        { name: "Adobe Premiere Pro", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/premierepro/premierepro-original.svg" },
+        { name: "Adobe Photoshop", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" }
+      ]
+    }
   ];
-  const mockSkills = Array.from({ length: 12 });
+
+  // Function to handle the "Next" button click
+  const handleNext = () => {
+    if (currentIndex < skillCategories.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      setCurrentIndex(0); // Loops back to Frontend when reaching the end!
+    }
+  };
+
+  const currentCategory = skillCategories[currentIndex];
 
   return (
-    <section id="skills" className="w-full px-[6vw] lg:px-[10vw] py-24 font-Poppins bg-[#0c0307]">
+    <section className="min-h-screen pt-40 px-[8vw] lg:px-[15vw] bg-white text-black font-Poppins pb-20 flex flex-col relative">
       
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-4 tracking-wide">
-          Tech Stack & <span className="text-[#d95628]">Skills</span>
-        </h1>
-        <p className="text-gray-400 text-lg md:text-xl font-light max-w-2xl mx-auto">
-          These are some technologies that i have worked with during my projects
-        </p>
-      </div>
-
-      <div className="flex justify-center mb-16 w-full">
-        <div className="flex overflow-x-auto w-full max-w-5xl bg-[#33081e] rounded-full px-4 py-2 md:py-3 gap-2 md:gap-6 items-center shadow-lg border border-[#521133] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          {categories.map((category, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveTab(category)}
-              className={`whitespace-nowrap px-4 py-2 rounded-full text-sm md:text-base transition-all duration-300 ${
-                activeTab === category 
-                  ? 'text-white font-bold' 
-                  : 'text-gray-300 hover:text-white font-normal'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+      {/* Category Pill Header */}
+      <div className="mb-14">
+        <div className="inline-block bg-[#e5e7eb] rounded-full px-8 py-2.5">
+          <h2 className="text-xl md:text-2xl font-medium text-gray-800">
+            {currentCategory.title}
+          </h2>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto">
-        {mockSkills.map((_, index) => (
-          <div 
-            key={index} 
-            className="w-full h-14 md:h-20 rounded-[1.5rem] bg-gradient-to-b from-[#8c0287] to-[#1f0022] shadow-xl border border-[#a603a1]/20"
-          ></div>
+      {/* Skills List */}
+      <div className="flex flex-col gap-10 pl-4 md:pl-12 w-full max-w-2xl">
+        {currentCategory.skills.map((skill, index) => (
+          <div key={index} className="flex items-center gap-8">
+            {/* Skill Icon */}
+            <div className="w-12 h-12 flex items-center justify-center shrink-0">
+              <img 
+                src={skill.icon} 
+                alt={skill.name} 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            {/* Skill Name */}
+            <h3 className="text-[1.35rem] font-light text-gray-700 tracking-wide">
+              {skill.name}
+            </h3>
+          </div>
         ))}
       </div>
+
+      {/* Next Button Container */}
+      {/* mt-auto pushes the button to the bottom of the container, self-end aligns it to the right */}
+      <div className="mt-auto self-end pt-16">
+        <button 
+          onClick={handleNext}
+          className="flex items-center gap-2 bg-[#4285F4] hover:bg-[#2b74f0] text-white font-normal text-lg px-8 py-2.5 rounded-full transition-colors shadow-sm"
+        >
+          Next 
+          <span className="text-xl font-light leading-none mb-0.5">{'>'}</span>
+        </button>
+      </div>
+
     </section>
   );
-} 
+}

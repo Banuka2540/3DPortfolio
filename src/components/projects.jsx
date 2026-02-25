@@ -1,55 +1,70 @@
-import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-
-gsap.registerPlugin(ScrollTrigger);
+import React from 'react';
 
 export default function Projects() {
-  const container = useRef();
-
-  useGSAP(() => {
-    // Header fade in
-    gsap.from(".proj-header", {
-      scrollTrigger: { trigger: ".proj-header", start: "top 85%" },
-      y: 30, opacity: 0, duration: 1, ease: "power3.out"
-    });
-
-    // The Fan-Out Effect
-    const tl = gsap.timeline({
-      scrollTrigger: { trigger: ".proj-cards-container", start: "top 75%" }
-    });
-
-    // Animate FROM dead center TO their fanned-out Tailwind positions
-    tl.from(".card-center", { y: 100, opacity: 0, duration: 0.8, ease: "back.out(1.2)" })
-      .from(".card-left", { x: '50%', rotation: 0, y: 50, opacity: 0, duration: 1, ease: "back.out(1.2)" }, "-=0.6")
-      .from(".card-right", { x: '-50%', rotation: 0, y: 50, opacity: 0, duration: 1, ease: "back.out(1.2)" }, "-=0.8");
-      
-  }, { scope: container });
+  const projectList = [
+    {
+      title: "Matrix Calculator",
+      description: "Developed a Python-based Matrix Calculator using NumPy to automate complex algebraic computations and visualize data structures.",
+      link: "#"
+    },
+    {
+      title: "MNIST Digit Predictor Calculator",
+      description: "The app processes uploaded images, automatically resizes them, normalizes pixel values, and predicts the digit using a trained neural network model.",
+      link: "#"
+    },
+    {
+      title: "Laptop price predictor",
+      description: "Engineered a regression model to estimate laptop market value by preprocessing features such as hardware specifications and physical dimensions.",
+      link: "#"
+    },
+    {
+      title: "Sentiment Analysis",
+      description: "I recently completed an end-to-end Sentiment Analysis project that identifies whether a user’s review is positive or negative.",
+      link: "#"
+    },
+    {
+      title: "Portfolio",
+      description: "To showcase graphic elements (fonts, layout, typography) without using meaningful content. Derived from Cicero's 45 BC.",
+      link: "#"
+    }
+  ];
 
   return (
-    <section id="projects" ref={container} className="w-full px-[6vw] lg:px-[10vw] py-24 font-Poppins bg-[#0c0307] overflow-hidden">
-      
-      <div className="proj-header text-center mb-16 lg:mb-24 relative z-20">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-4 tracking-wide">
-          Featured <span className="text-[#d95628]">Projects</span>
-        </h1>
-        <p className="text-gray-400 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
-          A showcase of my recent work where I blend creativity and technology into something fresh
-        </p>
-      </div>
-
-      <div className="proj-cards-container relative w-full max-w-4xl mx-auto h-[250px] sm:h-[350px] md:h-[450px] flex justify-center items-center mt-10">
+    <section className="min-h-screen pt-40 px-[8vw] lg:px-[12vw] bg-white text-black font-Poppins pb-32">
+      <div className="max-w-6xl mx-auto flex flex-col gap-12">
         
-        {/* Left Card */}
-        <div className="card-left absolute w-[60%] md:w-[380px] h-[80%] md:h-[320px] bg-gradient-to-b from-[#d91a45] to-[#c8560e] rounded-[1.5rem] md:rounded-[2rem] shadow-xl transform -rotate-12 -translate-x-[30%] md:-translate-x-[40%] translate-y-2 opacity-90 transition-transform hover:z-30 hover:scale-105"></div>
+        {projectList.map((project, index) => (
+          <div key={index} className="flex flex-col md:flex-row items-center md:items-stretch justify-between gap-8 md:gap-16 group">
+            
+            {/* Project Title (Left Side) */}
+            <div className="w-full md:w-1/3 flex items-center">
+              <h3 className="text-xl md:text-2xl font-normal text-gray-700 leading-tight">
+                {project.title}
+              </h3>
+            </div>
 
-        {/* Right Card */}
-        <div className="card-right absolute w-[60%] md:w-[380px] h-[80%] md:h-[320px] bg-gradient-to-b from-[#d91a45] to-[#c8560e] rounded-[1.5rem] md:rounded-[2rem] shadow-xl transform rotate-12 translate-x-[30%] md:translate-x-[40%] translate-y-2 opacity-90 transition-transform hover:z-30 hover:scale-105"></div>
+            {/* Blue Info Card (Right Side) */}
+            <div className="w-full md:w-2/3 bg-[#4285F4] rounded-2xl p-8 md:p-10 shadow-sm relative flex flex-col justify-between transition-transform hover:shadow-md">
+              <p className="text-white text-base md:text-[1.05rem] leading-relaxed font-light mb-8 pr-4">
+                {project.description}
+              </p>
+              
+              {/* Link Button */}
+              <div className="flex justify-end">
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-white text-[#4285F4] font-medium py-2 px-10 rounded-full hover:bg-gray-100 transition-colors shadow-sm text-center"
+                >
+                  Link
+                </a>
+              </div>
+            </div>
 
-        {/* Center Card */}
-        <div className="card-center absolute z-10 w-[65%] md:w-[440px] h-[90%] md:h-[360px] bg-gradient-to-b from-[#e81c4a] to-[#d95628] rounded-[1.5rem] md:rounded-[2rem] shadow-2xl border border-white/5 transition-transform hover:scale-105 hover:z-30"></div>
-        
+          </div>
+        ))}
+
       </div>
     </section>
   );
