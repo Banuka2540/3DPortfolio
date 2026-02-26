@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png'
 
 export default function Nav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,9 +19,12 @@ export default function Nav() {
       <nav className="flex items-center justify-between w-full mx-auto max-w-7xl">
         
         {/* Logo */}
-        <Link to="/" className="flex items-center justify-center w-12 h-12 rounded-full bg-[#110515] text-white font-serif italic shadow-md hover:scale-105 transition-transform">
-          <span className="text-xl">YB</span>
-        </Link>
+<Link 
+  to="/" 
+  className="flex items-center justify-center w-12 h-12 bg-[#110515] text-white font-serif italic shadow-md hover:scale-105 transition-transform rounded-full overflow-hidden"
+>
+  <img src={logo} className="w-full h-full object-cover" /> 
+</Link>
 
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center space-x-10">

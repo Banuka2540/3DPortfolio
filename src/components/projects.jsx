@@ -30,7 +30,7 @@ export default function Projects() {
   ];
 
   return (
-    <section className="min-h-screen pt-40 px-[8vw] lg:px-[12vw] bg-white text-black font-Poppins pb-32">
+    <section id="projects" className="min-h-screen pt-40 px-[8vw] lg:px-[12vw] bg-white text-black font-Poppins pb-32">
       <div className="max-w-6xl mx-auto flex flex-col gap-12">
         
         {projectList.map((project, index) => (
