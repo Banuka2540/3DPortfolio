@@ -40,26 +40,44 @@ export default function Projects() {
       const items = gsap.utils.toArray('.project-item');
 
       items.forEach((item, index) => {
-        gsap.fromTo(item, 
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            start: "top 85%", 
+            toggleActions: "play none none reverse",
+          }
+        });
+
+        // 1. Box entrance animation 
+        tl.fromTo(item, 
           { 
             y: 60, 
             opacity: 0, 
             scale: 0.95 
           }, 
           {
-            scrollTrigger: {
-              trigger: item,
-              start: "top 85%", // Triggers when the top of the card is 85% down the screen
-              toggleActions: "play none none reverse",
-            },
             y: 0,
             opacity: 1,
             scale: 1,
             duration: 1.4,
-            ease: "expo.out",
-            // Add a slight delay to the right column for a cascading "stagger" effect
+            ease: "power4.out", 
             delay: index % 2 === 0 ? 0 : 0.15 
           }
+        )
+        // 2. Inner text and button animation
+        .fromTo(item.querySelectorAll('.inner-anim'),
+          { 
+            y: 20, 
+            opacity: 0 
+          },
+          { 
+            y: 0, 
+            opacity: 1, 
+            duration: 0.8, 
+            stagger: 0.15, 
+            ease: "power3.out" 
+          },
+          0.8 
         );
       });
     }, container);
@@ -68,34 +86,30 @@ export default function Projects() {
   }, []);
 
   return (
-    <section ref={container} id="projects" className="min-h-screen pt-32 pb-40 px-[8vw] lg:px-[12vw] bg-[#FAFAFA] font-Poppins overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <section ref={container} id="projects" className="min-h-screen pt-32 pb-40 px-[6vw] lg:px-[8vw] bg-white text-black font-Poppins overflow-hidden flex justify-center">
+      <div className="w-full max-w-screen-xl flex flex-col items-center">
         
-        {/* Exact grid structure from the image */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 w-full">
           
           {projectList.map((project, index) => (
-            <div key={index} className="project-item flex flex-col items-center">
+            <div key={index} className="project-item flex flex-col items-center w-full">
               
-              {/* Title exactly as it appears in the image */}
-              <h3 className="text-[1.35rem] font-medium text-black mb-5 text-center">
+              <h3 className="text-[1.5rem] md:text-[1.75rem] font-medium text-black mb-6 text-center">
                 {project.title}
               </h3>
 
-              {/* White Card with Soft Shadow */}
-              <div className="bg-white rounded-2xl p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.08)] w-full flex flex-col items-center justify-between text-center min-h-[260px] transition-transform duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgb(0,0,0,0.12)]">
+              {/* CHANGED: Removed the hover classes (hover:-translate-y-2 hover:shadow-...) */}
+              <div className="bg-[#D4E2FF] rounded-[2rem] p-8 md:p-12 w-full flex flex-col items-center justify-between text-center min-h-[300px]">
                 
-                {/* Description Text */}
-                <p className="text-gray-500 text-[1rem] leading-relaxed mb-8">
+                <p className="inner-anim text-gray-500 text-[1.05rem] md:text-[1.15rem] leading-[1.6] mb-8 max-w-[95%]">
                   {project.description}
                 </p>
                 
-                {/* Blue Link Button */}
                 <a 
                   href={project.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#4285F4] text-white text-[1.05rem] font-medium py-2.5 px-12 rounded-full hover:bg-[#3367D6] transition-colors shadow-md hover:shadow-lg"
+                  className="inner-anim bg-[#4A8BF5] text-white text-[1.1rem] font-medium py-2.5 px-16 rounded-full hover:bg-blue-600 transition-colors"
                 >
                   Link
                 </a>
