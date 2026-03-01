@@ -7,7 +7,7 @@ import logo from '../assets/logo.png';
 export default function Nav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const navRef = useRef(null); // Reference for our GSAP animations
+  const navRef = useRef(null); 
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -18,35 +18,34 @@ export default function Nav() {
   ];
 
   useGSAP(() => {
-    // Create a sequence (timeline) so the animations happen one after another
     const tl = gsap.timeline();
 
-    // 1. Drop the entire header down from the top
     tl.from(navRef.current, {
       y: -50,
       opacity: 0,
       duration: 0.8,
       ease: "power3.out"
     })
-    // 2. Stagger in the logo and links slightly after the header starts dropping
     .from('.nav-item', {
       y: -20,
       opacity: 0,
       duration: 0.5,
-      stagger: 0.1, // Delays each item by 0.1s for that cascading effect
+      stagger: 0.1, 
       ease: "power2.out"
-    }, "-=0.4"); // The "-=0.4" makes this animation start slightly before the first one finishes
+    }, "-=0.4");
 
   }, { scope: navRef });
 
   return (
-    <header ref={navRef} className="absolute top-0 left-0 w-full z-50 px-[6vw] py-8 font-Poppins">
-      <nav className="flex items-center justify-between w-full mx-auto max-w-7xl">
+    // FIXED: Matched padding exactly to About.jsx (lg:px-[4vw])
+    <header ref={navRef} className="absolute top-1 left-0 w-full z-50 px-[6vw] lg:px-[4vw] py-6 font-Poppins flex justify-center">
+      
+      {/* FIXED: Matched width exactly to About.jsx (max-w-screen-xl) */}
+      <nav className="flex items-center justify-between w-full max-w-screen-xl">
         
-        {/* Logo - Added 'nav-item' class so GSAP targets it */}
         <Link 
           to="/" 
-          className="nav-item flex items-center justify-center w-12 h-12 bg-[#110515] text-white font-serif italic shadow-md hover:scale-105 transition-transform rounded-full overflow-hidden"
+          className="nav-item flex m-4 items-center justify-center w-12 h-12 bg-[#110515] text-white font-serif italic shadow-md hover:scale-105 transition-transform rounded-full overflow-hidden shrink-0"
         >
           <img src={logo} alt="Logo" className="w-full h-full object-cover" /> 
         </Link>
@@ -54,7 +53,6 @@ export default function Nav() {
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center space-x-10">
           {navLinks.map((link) => (
-            // Added 'nav-item' class here too
             <li key={link.name} className="nav-item">
               <Link 
                 to={link.path}
@@ -70,7 +68,7 @@ export default function Nav() {
           ))}
         </ul>
 
-        {/* Mobile Hamburger Menu - Added 'nav-item' so it animates on mobile screens */}
+        {/* Mobile Hamburger Menu */}
         <button 
           className="nav-item md:hidden p-2 text-black focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
