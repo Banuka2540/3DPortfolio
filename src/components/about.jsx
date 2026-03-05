@@ -1,6 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type'; 
+import kingswood from '../assets/1.jpg'
+import kingswood_friends from '../assets/2.png'
+import srilankan from '../assets/srilankan.png'
+import sabaragamuwa from '../assets/5.png'
 
 export default function About() {
   const container = useRef(null);
@@ -23,16 +27,16 @@ export default function About() {
       .from('.about-card', {
         y: 40,
         opacity: 0,
-        duration: 0.8
+        duration: 0.4
       }, "-=0.8") 
       .from('.card-inner-text', {
         y: 15,
         opacity: 0,
         stagger: 0.1,
-        duration: 0.6
+        duration: 0.4
       }, "-=0.6")
       .from('.card-image', {
-        scale: 0.95,
+        scale: 0.8,
         opacity: 0,
         duration: 0.8
       }, "-=0.6")
@@ -40,7 +44,7 @@ export default function About() {
         y: 20,
         opacity: 0,
         stagger: 0.15,
-        duration: 0.8
+        duration: 0.4
       }, "-=0.4");
 
     }, container);
@@ -72,7 +76,7 @@ export default function About() {
           </div>
           <div className="card-image w-full md:w-1/2 h-[300px] md:h-[400px] rounded-2xl overflow-hidden shrink-0">
             <img 
-              src="src/assets/1.jpg" 
+              src={kingswood}
               alt="Kingswood College Building" 
               className="w-full h-full object-cover object-center rounded-2xl"
             />
@@ -90,7 +94,7 @@ export default function About() {
           </div>
           <div className="card-image w-full md:w-1/2 h-[300px] md:h-[400px] rounded-2xl overflow-hidden shrink-0">
             <img 
-              src="src/assets/2.png" 
+              src={kingswood_friends} 
               alt="Kingswood Friends" 
               className="w-full h-full object-cover object-center rounded-2xl"
             />
@@ -108,7 +112,7 @@ export default function About() {
           </div>
           <div className="card-image w-full md:w-1/2 h-[300px] md:h-[400px] rounded-2xl overflow-hidden shrink-0">
             <img 
-              src="src/assets/srilankan.png" 
+              src={srilankan} 
               alt="SriLankan Airlines" 
               className="w-full h-full object-cover object-center rounded-2xl"
             />
@@ -127,7 +131,7 @@ export default function About() {
           </div>
           <div className="card-image w-full md:w-1/2 h-[300px] md:h-[400px] rounded-2xl overflow-hidden shrink-0">
             <img 
-              src="src/assets/5.png" 
+              src={sabaragamuwa} 
               alt="Sabaragamuwa University" 
               className="w-full h-full object-cover object-center rounded-2xl"
             />
