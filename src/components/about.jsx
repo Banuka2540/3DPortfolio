@@ -22,30 +22,25 @@ export default function About() {
         y: 30,
         opacity: 0,
         stagger: 0.03, 
-        delay: 0.2
       })
       .from('.about-card', {
         y: 40,
         opacity: 0,
-        duration: 0.4
-      }, "-=0.8") 
+        duration: 0.25
+      }, "-=0.2") 
+      
       .from('.card-inner-text', {
         y: 15,
         opacity: 0,
         stagger: 0.1,
-        duration: 0.4
-      }, "-=0.6")
+        duration: 0.35
+      }, )
       .from('.card-image', {
         scale: 0.8,
         opacity: 0,
         duration: 0.8
-      }, "-=0.6")
-      .from('.work-item', {
-        y: 20,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.4
-      }, "-=0.4");
+      }, )
+    
 
     }, container);
 

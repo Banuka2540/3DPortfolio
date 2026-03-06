@@ -11,27 +11,27 @@ export default function Projects() {
     {
       title: "Matrix Calculator",
       description: "Developed a Python-based Matrix Calculator using NumPy to automate complex algebraic computations and visualize data structures .",
-      link: "#"
+      link: "https://github.com/Banuka2540/Matrix_Calculator"
     },
     {
       title: "MNIST Digit Predictor",
       description: "The app processes uploaded images, automatically resizes them, normalizes pixel values, and predicts the digit using a trained neural network model .",
-      link: "#"
+      link: "https://github.com/Banuka2540/Neural-Network-For-Handwritten-Digits-Classification"
     },
     {
       title: "Laptop price predictor",
       description: "Laptop Price Predictor that uses Linear Regression as the model. prepossessed the data, split the dataset into training and testing sets, and deployed using Flask.",
-      link: "#"
+      link: "https://github.com/Banuka2540/Laptop_Price_Predictor"
     },
     {
       title: "Sentiment Analysis",
       description: "web application that predicts whether a given text input expresses Positive or Negative sentiment.Built using Python, scikit-learn, and a simple Flask-based web interface.",
-      link: "#"
+      link: "https://github.com/Banuka2540/sentiment_analysis"
     },
     {
       title: "Portfolio",
       description: "created a clean minimalist portfolio using React js , HTML , CSS and Gsap .",
-      link: "#"
+      link: "https://www.yuthilabanuka.dev/"
     }
   ];
 
